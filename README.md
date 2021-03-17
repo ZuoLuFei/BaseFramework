@@ -1,7 +1,11 @@
 ### 项目初始化步骤
 1. 打开 .xcodeproj ,将PROJECT及TARGETS 的  Build Settings-> Swift Language Version 设置为 Swift 4
 2. pod init 
-3. 在Podfile中写入如下库
+3. 在Podfile中将资源地址修改为：
+```
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git’
+```
+并导入如下库
 ```swift
     pod 'Moya/RxSwift',:inhibit_warnings => true
     pod 'Then'
