@@ -28,6 +28,6 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git’
 4. pod install
 5. 打开 .xcworkspace
 6. 将BaseFramework文件夹拖入项目
-7. 在PROJECT及TARGETS 的  Build Settings-> Objective-C Bridging Header 中 加入   实际项目/BaseFramework/BaseFramework-Bridging-Header.h
+7. 在PROJECT及TARGETS 的  Build Settings-> Objective-C Bridging Header 中 加入   实际项目$(SRCROOT)/$(PROJECT_NAME)/BaseFramework/BaseFramework-Bridging-Header.h
 8. 将PROJECT及TARGETS 的  Build Settings-> inhibit All Warning 设置为 true
 9. 参考BaseFramework Demo 在AppDelegate中初始化项目
