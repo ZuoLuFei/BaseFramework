@@ -12,7 +12,7 @@ import UIKit
 extension UIButton {
 
     /// setTitle:forState:
-    func hc_SetTitle(_ title: String, for state: UIControlState) {
+    func hc_SetTitle(_ title: String, for state: UIControl.State) {
 
         self.setTitle(DEF_LOCALIZED_STRING(key: title), for: state)
 
@@ -28,7 +28,7 @@ extension UIButton {
     }
 
     /// setAttributedTitle:forState:
-    func kcSetAttributedTitle(_ title: String, for state: UIControlState) {
+    func kcSetAttributedTitle(_ title: String, for state: UIControl.State) {
         self.setAttributedTitle(NSAttributedString(string: DEF_LOCALIZED_STRING(key: title)), for: state)
 
         var localizableDicts = self.localizableDicts
@@ -51,9 +51,9 @@ extension UIButton {
 
             if let dict = value as? [String: Any] {
                 dict.forEach({(methodKey, selectorValue) in
-                    guard let rawValue = UIControlState.RawValue(key) else { return }
+                    guard let rawValue = UIControl.State.RawValue(key) else { return }
 
-                    let state: UIControlState = UIControlState(rawValue: rawValue)
+                    let state: UIControl.State = UIControl.State(rawValue: rawValue)
                     let selectorStr = (selectorValue as? String) ?? ""
 
                     if methodKey == "setTitle:forState:" {

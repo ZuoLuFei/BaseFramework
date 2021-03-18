@@ -8,6 +8,7 @@
  ******************************************************************************/
 
 import UIKit
+import RTRootNavigationController
 
 extension UIWindow {
 

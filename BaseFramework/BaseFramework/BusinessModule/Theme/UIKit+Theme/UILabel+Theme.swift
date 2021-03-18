@@ -38,7 +38,7 @@ extension UILabel {
 
             register(value, methodKey: "setShadowColor:", dataKey: &shadowColorKey)
 
-            self.shadowColor = HCThemeManager.share.colorOf(key: value)
+            self.layer.shadowColor = HCThemeManager.share.colorOf(key: value).cgColor
         }
 
         get {

@@ -143,7 +143,7 @@ extension String {
 
     func heightForComment(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox.height
     }
 
@@ -151,7 +151,7 @@ extension String {
         let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT),
                                                                     height: height),
                                                        options: .usesLineFragmentOrigin,
-                                                       attributes: [NSAttributedStringKey.font: font],
+                                                       attributes: [NSAttributedString.Key.font: font],
                                                        context: nil)
         return ceil(rect.width)
     }

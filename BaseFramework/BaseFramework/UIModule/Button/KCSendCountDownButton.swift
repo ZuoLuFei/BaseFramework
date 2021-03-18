@@ -68,7 +68,7 @@ class KCSendCountDownButton: UIButton {
                           selector: #selector(_handleTimeTick),
                           userInfo: nil,
                           repeats: true)
-        RunLoop.current.add(timer, forMode: .commonModes)
+        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
         self.timer = timer
         timer.fire()
     }

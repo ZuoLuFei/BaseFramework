@@ -44,8 +44,7 @@ class KCReachabilityHelper: NSObject {
     }
 
     private func _addNotificationObserver() {
-        _reachability?.startListening()
-        _reachability?.listener = {[weak self] (status) in
+        _reachability?.startListening(onUpdatePerforming: {[weak self] (status) in
             switch status {
             case .notReachable:
                 self?.type.accept(.none)
@@ -53,9 +52,22 @@ class KCReachabilityHelper: NSObject {
                 self?.type.accept(.none)
             case .reachable(.ethernetOrWiFi):
                 self?.type.accept(.wifi)
-            case .reachable(.wwan):
+            case .reachable(.cellular):
                 self?.type.accept(.cellular)
             }
-        }
+        })
+//        _reachability?.startListening()
+//        _reachability?.listener = {[weak self] (status) in
+//            switch status {
+//            case .notReachable:
+//                self?.type.accept(.none)
+//            case .unknown:
+//                self?.type.accept(.none)
+//            case .reachable(.ethernetOrWiFi):
+//                self?.type.accept(.wifi)
+//            case .reachable(.wwan):
+//                self?.type.accept(.cellular)
+//            }
+//        }
     }
 }

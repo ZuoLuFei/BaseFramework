@@ -42,7 +42,7 @@ class KCEditAlertView: KCAlertView {
 
         NotificationCenter.default.addObserver(instance,
                                                selector: #selector(_keyBoardWillShow(_:)),
-                                               name: .UIKeyboardWillShow,
+                                               name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
 
         instance.placeHolder = placeHolder ?? ""
@@ -70,7 +70,7 @@ class KCEditAlertView: KCAlertView {
                                                 y: 0,
                                                 width: width - 8,
                                                 height: 38))
-        let attributes: [NSAttributedStringKey: Any] = [
+        let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.pingFangWith(size: 14),
             .foregroundColor: UIColor.hex(value: 0xD4DAEC)
         ]
@@ -98,7 +98,7 @@ class KCEditAlertView: KCAlertView {
 
     @objc private func _keyBoardWillShow(_ notification: Notification) {
         let kbInfo = notification.userInfo
-        guard let kbRect = (kbInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let kbRect = (kbInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
         let screenHeight = UIScreen.main.bounds.size.height
         var frame = contentView.frame
@@ -107,7 +107,7 @@ class KCEditAlertView: KCAlertView {
 
         frame.origin.y = screenHeight - kbRect.size.height - 20 - frame.size.height
 
-        let duration = (kbInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double) ?? 0
+        let duration = (kbInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0
 
         UIView.animate(withDuration: duration, animations: { [weak self] in
             self?.contentView.frame = frame

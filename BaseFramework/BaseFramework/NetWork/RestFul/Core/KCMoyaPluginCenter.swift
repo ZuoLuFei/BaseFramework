@@ -119,15 +119,15 @@ struct KCMoyaPluginCenter {
     }
 
     // 数据打印组件
-    static let myNetworkLoggerPlugin = NetworkLoggerPlugin(verbose: true, responseDataFormatter: { (data: Data) -> Data in
-        //            return Data()
-        do {
-            let dataAsJSON = try JSONSerialization.jsonObject(with: data)// Data 转 JSON
-            let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)// JSON 转 Data，格式化输出。
-            return prettyData
-        } catch {
-            return data
-        }
-    })
+//    static let myNetworkLoggerPlugin = NetworkLoggerPlugin(verbose: true, responseDataFormatter: { (data: Data) -> Data in
+//        //            return Data()
+//        do {
+//            let dataAsJSON = try JSONSerialization.jsonObject(with: data)// Data 转 JSON
+//            let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)// JSON 转 Data，格式化输出。
+//            return prettyData
+//        } catch {
+//            return data
+//        }
+//    })
 
 }

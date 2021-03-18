@@ -44,7 +44,7 @@ class KCBanner: UIView, UIScrollViewDelegate {
         timer = Timer(timeInterval: 3.0, target: self, selector: #selector(_autoScroll), userInfo: nil, repeats: true)
 
         if let timer = timer {
-            RunLoop.current.add(timer, forMode: .commonModes)
+            RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
         }
     }
 

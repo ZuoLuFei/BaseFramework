@@ -14,7 +14,7 @@ extension UIScrollView {
         let header = MJRefreshNormalHeader(refreshingBlock: {
             action?()
         })
-        header?.activityIndicatorViewStyle = .white
+        header.activityIndicatorViewStyle = UIActivityIndicatorView.Style.medium
         self.mj_header = header
     }
 
@@ -25,18 +25,18 @@ extension UIScrollView {
     }
 
     func endHeaderRefresh() {
-        mj_header.endRefreshing()
+        mj_header?.endRefreshing()
     }
 
     func endFooterRefresh(_ noMoreData: Bool = false) {
         if noMoreData {
-            self.mj_footer.endRefreshingWithNoMoreData()
+            self.mj_footer?.endRefreshingWithNoMoreData()
         } else {
-            self.mj_footer.endRefreshing()
+            self.mj_footer?.endRefreshing()
         }
     }
 
     func beginRefreshing() {
-        mj_header.beginRefreshing()
+        mj_header?.beginRefreshing()
     }
 }

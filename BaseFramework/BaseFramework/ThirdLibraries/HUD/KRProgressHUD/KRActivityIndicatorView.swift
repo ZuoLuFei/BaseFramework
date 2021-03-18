@@ -12,7 +12,7 @@ import UIKit
 
 class KRActivityIndicatorView: UIView {
 
-    private var indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    private var indicatorView = UIActivityIndicatorView(style: .whiteLarge)
 
     func startAnimating() {
 

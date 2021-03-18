@@ -94,15 +94,21 @@ class KCNetWorkCenter<T: KCResponseFilterProtocol> {
 
     func cancel(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
-        provider.manager.session.dataTask(with: url).cancel()
+        provider.session.session.dataTask(with: url).cancel()
+//        provider.manager.session.dataTask(with: url).cancel()
     }
 
     func cancelAll() {
-        provider.manager.session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
+        provider.session.session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
             dataTasks.forEach { $0.cancel() }
             uploadTasks.forEach { $0.cancel() }
             downloadTasks.forEach { $0.cancel() }
         }
+//        provider.manager.session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
+//            dataTasks.forEach { $0.cancel() }
+//            uploadTasks.forEach { $0.cancel() }
+//            downloadTasks.forEach { $0.cancel() }
+//        }
     }
 
     func test(target: KCNetworkTargetType) -> Observable<KCResponse?> { //  -> Single<Response>

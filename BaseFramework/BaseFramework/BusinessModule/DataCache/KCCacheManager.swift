@@ -40,7 +40,7 @@ class KCCacheManager: NSObject {
 
             let realm: Realm? = try? Realm()
             try? realm?.write {
-                realm?.add(items, update: true)
+                realm?.add(items, update: .modified)
             }
         }
     }
@@ -63,7 +63,7 @@ extension KCCacheManager {
             model.value = value
             let realm = try? Realm()
             try? realm?.write {
-                realm?.add(model, update: true)
+                realm?.add(model, update: .modified)
             }
         }
     }

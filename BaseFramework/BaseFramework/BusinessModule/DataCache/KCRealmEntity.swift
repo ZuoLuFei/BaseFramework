@@ -13,7 +13,7 @@ import Realm
 
 class KCRealmEntity: Object, Mappable {
 
-    required init() {
+    required override init() {
         super.init()
     }
 

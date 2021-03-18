@@ -18,7 +18,7 @@ extension UIButton {
     /// - Parameters:
     ///   - theme: 主题色
     ///   - state: 状态
-    func hc_setTitleColorPicker(_ theme: HCTheme.Color, forState state: UIControlState) {
+    func hc_setTitleColorPicker(_ theme: HCTheme.Color, forState state: UIControl.State) {
 
         self.setTitleColor(HCThemeManager.share.colorOf(key: theme.rawValue), for: state)
 
@@ -37,7 +37,7 @@ extension UIButton {
     /// - Parameters:
     ///   - theme: 图片
     ///   - state: 状态
-    func hc_setBackgroundImage(_ theme: HCTheme.Image, forState state: UIControlState) {
+    func hc_setBackgroundImage(_ theme: HCTheme.Image, forState state: UIControl.State) {
         self.setBackgroundImage(HCThemeManager.share.imageOf(key: theme.rawValue), for: state)
 
         var pik = pickers
@@ -55,7 +55,7 @@ extension UIButton {
     /// - Parameters:
     ///   - theme: 图片
     ///   - state: 状态
-    func hc_setImage(_ theme: HCTheme.Image, forState state: UIControlState) {
+    func hc_setImage(_ theme: HCTheme.Image, forState state: UIControl.State) {
 
         self.setImage(HCThemeManager.share.imageOf(key: theme.rawValue), for: state)
 
@@ -81,7 +81,7 @@ extension UIButton {
 
                 dict.forEach({(stateKey, selectorValue) in
 
-                    let state: UIControlState = UIControlState(rawValue: UIControlState.RawValue(key)!)
+                    let state: UIControl.State = UIControl.State(rawValue: UIControl.State.RawValue(key)!)
                     let selectorStr = (selectorValue as? String) ?? ""
 
                     UIView.animate(withDuration: HCThemeModeAnimationDuration, animations: {

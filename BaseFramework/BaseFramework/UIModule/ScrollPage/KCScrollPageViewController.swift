@@ -68,8 +68,8 @@ class KCScrollPageViewController: UIViewController {
 
     var selectedIndex: Int = 0
     var selectedViewController: UIViewController? {
-        guard selectedIndex < childViewControllers.count else { return nil }
-        return childViewControllers[selectedIndex]
+        guard selectedIndex < children.count else { return nil }
+        return children[selectedIndex]
     }
 
     init(_ type: TitleViewType = .left) {
@@ -165,7 +165,7 @@ class KCScrollPageViewController: UIViewController {
         vcScrollView.showsHorizontalScrollIndicator = false
 
         for (index, vc) in vcs.enumerated() {
-            self.addChildViewController(vc)
+            self.addChild(vc)
 
             vcScrollView.addSubview(vc.view)
             vc.view.snp.makeConstraints { (make) in
@@ -253,12 +253,12 @@ class KCScrollPageViewController: UIViewController {
     private func _updateTitle(_ target: Int) {
         for (index, item) in titleItemViews.enumerated() {
 //            item.kc_setTitleColorPicker(index == target ? .main : .tipWord, forState: .normal)
-            item.setTitleColor(index == target ? .black : .red, for: UIControlState.normal)
+            item.setTitleColor(index == target ? .black : .red, for: UIControl.State.normal)
         }
         delegate?.scrollPageViewControllerDidScroll(target)
 
         var targetVC: KCScrollable?
-        for (i, child) in childViewControllers.enumerated() {
+        for (i, child) in children.enumerated() {
             guard let child = child as? KCScrollable else { continue }
 
             if i != target {
